@@ -3,7 +3,9 @@
     --cg-black: rgb(30, 32, 32);
     --cg-blue: rgb(36, 94, 255);
     --cg-grey: rgb(243, 243, 243);
-    --cg-white: rgb(255, 255, 255);
+    --cg-white: rgb(255, 210, 190);
+    --cg-white-med: rgb(255, 215, 195);
+    --cg-white-minus: rgb(255, 230, 210);
   }
   
   html {
@@ -17,6 +19,7 @@
     padding: 0;
     margin: 0;
     font-family: monospace;
+    background-color: var(--cg-white);
   }
   
   /* CSS for navigation */
@@ -35,12 +38,32 @@
     text-align: center;
   
     background-color: var(--cg-black);
-    color: var(--cg-white);
+    color: var(--cg-white-minus);
     padding: 0px 0px;
+
+    font-size: 1em;
   
     /* Debug border */
     /* border: solid red; */
   }
+
+  @media only screen and (max-width: 800px) {
+    .navbar {
+      font-size: 0.75em;
+    }
+    .nav-about {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      font-size: 0.4em;
+    }
+    .nav-about {
+      display: none;
+    }
+  }
+  
   
   .nav-list {
     display: flex;
@@ -99,15 +122,34 @@
   }
   
   /* CSS for portfolio grid */
-  
-  .project {
+
+  .projects {
     display: flex;
     flex-direction: row;
-    max-width: 100%;
+    width: 100%;
     margin: 1em 0 2em 0;
+    flex-wrap: wrap;
   
     /* Debug border */
     /* border: 2px solid blue; */
+  }
+  
+  .project {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    margin: 1em 1em 2em 1em;
+    background-color: var(--cg-white-minus);
+    border-radius: 10px;
+    border: 2px solid var(--cg-grey);
+    
+    /* Debug border */
+    /* border: 2px solid blue; */
+  }
+
+  .project:hover {
+    background-color: var(--cg-white-med);
+    transform: scale(1.05);
   }
   
   .item-link {
@@ -117,27 +159,21 @@
     /* border: 2px solid red; */
   }
   
-  .project-image {
-    object-fit: cover;
+  .project-img {
     width: 100%;
-    height: 500px;
-    flex-basis: 50px;
-    flex-grow: 2;
-  
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
     /* Debug border */
     /* border: 2px solid black; */
   }
   
   .project-details {
     display: flex;
-    background-color: var(--cg-white);
-    width: 30%;
-    height: 500px;
-    flex-shrink: 1;
     padding: 0 20px;
     margin: 0px;
+    padding: 10px;
     line-height: 1.5;
-    overflow: scroll;
   
     flex-direction: column;
     text-align: center;
@@ -167,6 +203,21 @@
     font-weight: bold;
     font-size: 20px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .project-name {
+      font-size: 12px;
+    }
+    .project {
+      
+      max-width: 90%;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .project {
+      max-width: 40%;
+    }
+  }
   
   /* CSS for home page */
   
@@ -175,7 +226,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: var(--cg-white-minus);
     border: 2px solid #ccc;
     border-radius: 5px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
@@ -183,8 +234,23 @@
   
   .about-image img {
     max-width: 300px;
+    width: 70%;
     border-radius: 5px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  }
+
+  @media only screen and (max-width: 600px) {
+    .about-image img {
+      max-width: 100px;
+      width: 100%;
+    }
+    .about-text p {
+      font-size: 8px;
+      line-height: 1.5;
+    }
+    .about-text {
+      margin-left: 0px;
+    }
   }
   
   .about-text {
@@ -251,6 +317,17 @@
     width: 500px;
     margin: 0 auto;
   }
+
+  @media only screen and (max-width: 400px) {
+    form {
+      width: 200px;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    form {
+      width: 300px;
+    }
+  }
   
   /* CSS for footer */
   
@@ -259,7 +336,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--cg-black);
-    color: var(--cg-white);
+    color: var(--cg-white-minus);
     position: absolute;
     bottom: 0;
     width: 100%;
