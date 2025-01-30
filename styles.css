@@ -167,6 +167,16 @@
     /* Debug border */
     /* border: 2px solid black; */
   }
+
+  .git-img {
+    width: 90%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5%;
+
+    /* Debug border */
+    /* border: 2px solid black; */
+  }
   
   .project-details {
     display: flex;
@@ -226,10 +236,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    margin:0;
     background-color: var(--cg-white-minus);
     border: 2px solid #ccc;
     border-radius: 5px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
+    flex-direction: row;
+    max-width: 80%;
   }
   
   .about-image img {
@@ -241,7 +255,7 @@
 
   @media only screen and (max-width: 600px) {
     .about-image img {
-      max-width: 100px;
+      max-width: 180px;
       width: 100%;
     }
     .about-text p {
@@ -250,6 +264,10 @@
     }
     .about-text {
       margin-left: 0px;
+    }
+
+    .about {
+      flex-direction: column;
     }
   }
   
@@ -347,7 +365,7 @@
     background-color: var(--cg-white-minus);
     display: flex;
     padding: 20px;
-    margin: 0px;
+    margin: 15px;
     line-height: 1.5;
   
     flex-direction: column;
@@ -357,7 +375,7 @@
     border-radius: 10px;
     border: 2px solid var(--cg-grey);
 
-    max-width: 70%;
+    width: 70%;
   }
 
   .blogpost:hover {
